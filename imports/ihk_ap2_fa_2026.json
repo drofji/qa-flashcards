@@ -1,0 +1,159 @@
+[
+  {
+    "name": "Planen eines Softwareproduktes",
+    "color": "#5288c1",
+    "cards": [
+      {
+        "q": "Was ist das Ziel einer **Lastenhefterstellung**?",
+        "a": "### Zielsetzung\nDefinition der Gesamtheit der Forderungen des Auftraggebers an die Lieferungen und Leistungen eines Auftragnehmers."
+      },
+      {
+        "q": "Nenne drei Phasen des **Wasserfallmodells**.",
+        "a": "- Anforderungsdefinition\n- System- und Softwareentwurf\n- Implementierung und Modultest"
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Lastenheft und Pflichtenheft?",
+        "a": "**Lastenheft**: Was will der Auftraggeber? (Erstellt vom Kunden)\n**Pflichtenheft**: Wie setzt der Auftragnehmer es um? (Erstellt vom Entwickler)"
+      }
+    ]
+  },
+  {
+    "name": "Entwicklung und Umsetzung von Algorithmen",
+    "color": "#81c784",
+    "cards": [
+      {
+        "id": "mlzi45s3y77axjn88hq",
+        "q": "Datenbank (DB)",
+        "a": "Eine strukturierte Sammlung von Daten, die so organisiert sind, dass sie effizient gespeichert, verwaltet und abgefragt werden können. Sie dient der dauerhaften (persistente) Speicherung von Informationen."
+      },
+      {
+        "id": "mm29y4kmmpkfh9mefei",
+        "q": "Datenbankmanagementsystem (DBMS)",
+        "a": "Die Software, die die Datenbank verwaltet (z. B. MySQL, PostgreSQL, Oracle, MS SQL Server). Sie bildet die Schnittstelle zwischen den Benutzern/Anwendungen und den physischen Daten."
+      },
+      {
+        "id": "mm29zfuw8x1l22jbuv8",
+        "q": "Systemkatalog (Metadaten) und Datenbestand - Datenbank",
+        "a": "### Systemkatalog\nEnthält **Metadaten** (Daten über Daten), wie Tabellenstrukturen, Datentypen, Indizes und Zugriffsrechte.\n\n### Datenbestand\nUmfasst die eigentlichen **Nutzdaten**, die in den Tabellen gespeichert sind."
+      },
+      {
+        "id": "mm29zy0lscuouubxkj9",
+        "q": "Relationaler.... DB (RDB)",
+        "a": "Ein Datenbankmodell, bei dem Daten in Tabellen (**Relationen**) organisiert sind. Diese Tabellen sind über gemeinsame Schlüsselwerte (Primär- und Fremdschlüssel) miteinander verknüpft."
+      },
+      {
+        "id": "mm2a0reyxos0afzxtac",
+        "q": "Datenbankmodelle und deren Funktionen",
+        "a": "Es gibt verschiedene Modelle:\n- **Relational**: Tabellenbasiert (Standard).\n- **Hierarchisch**: Baumstruktur.\n- **Netzwerk**: Graphenstruktur.\n- **Objektorientiert**: Speichert Objekte direkt.\n\n### Kernfunktionen des DBMS:\n- Abfrage/Suchen\n- Mehrbenutzerbetrieb (Concurrency control)\n- Transaktionsmanagement (ACID)\n- Datensicherheit & Integrität"
+      },
+      {
+        "id": "mm2a44zcvvk4z6zvtgr",
+        "q": "Tabelle in einer Datenbank",
+        "a": "Eine zweidimensionale Struktur bestehend aus:\n- **Spalten (Attribute)**: Definieren die Eigenschaften.\n- **Zeilen (Datensätze/Tupel)**: Enthalten die konkreten Werte für ein Objekt."
+      },
+      {
+        "id": "mm2a4gdxb2r2zqd13gq",
+        "q": "Attribute in einer DB-Tabelle",
+        "a": "Attribute beschreiben die Merkmale einer Entität (z. B. 'Vorname', 'Geburtsdatum'). Jede Spalte hat einen festen Datentyp (Integer, String, Date)."
+      },
+      {
+        "id": "mm2a58rpgkz2gpplyhe",
+        "q": "Prinzip der Beziehungen zwischen Tabellen und Datensätzen",
+        "a": "Beziehungen verknüpfen Tabellen logisch miteinander. Dies geschieht, indem der Primärschlüssel einer Tabelle als Fremdschlüssel in einer anderen Tabelle eingetragen wird. Ziel: Vermeidung von Redundanz."
+      },
+      {
+        "id": "mm2a5ouej1t7h3ur3pp",
+        "q": "UML (Unified Modeling Language)",
+        "a": "Eine grafische Standardsprache zur Modellierung von Software und Systemen.\n\n### Multiplizitäten:\n- `1`: Genau eins\n- `0..1`: Null oder eins\n- `*` oder `0..*`: Beliebig viele\n- `1..*`: Mindestens eins"
+      },
+      {
+        "id": "mm2a5sx6hkvi71vnz1c",
+        "q": "ERM (Entity-Relationship-Modell)",
+        "a": "Ein Modell zur Planung der Datenbankstruktur.\n- **Entität**: Ein Ding/Objekt (Rechteck).\n- **Attribut**: Eigenschaft (Oval).\n- **Beziehung**: Verknüpfung (Raute).\n\nKardinalitäten geben das Mengenverhältnis an (1:1, 1:n, n:m)."
+      },
+      {
+        "id": "mm2a62aowvsj4u6jtor",
+        "q": "Primaerschluessel (Primary Key)",
+        "a": "Ein Attribut (oder eine Gruppe), das jeden Datensatz in einer Tabelle **eindeutig** identifiziert. Er darf nicht leer sein (NOT NULL) und darf nicht doppelt vorkommen."
+      },
+      {
+        "id": "mm2a6elp991yytp4ibk",
+        "q": "Fremdschluessel (Foreign Key)",
+        "a": "Ein Attribut in einer Tabelle, das auf den Primärschlüssel einer anderen Tabelle verweist. Es stellt die Verbindung zwischen den Tabellen her."
+      },
+      {
+        "id": "mm2a9c4s3rtcks045k6",
+        "q": "1:1, 1:n, n:n Beziehungen",
+        "a": "- **1:1**: Jeder Datensatz in A gehört zu genau einem in B (selten).\n- **1:n**: Ein Datensatz in A kann viele in B haben (häufigster Fall).\n- **n:m**: Viele in A können mit vielen in B verknüpft sein (benötigt eine Hilfstabelle/Zwischentabelle)."
+      },
+      {
+        "id": "mm2ac9m2ds3bq0f2iho",
+        "q": "Tabellen/Schema",
+        "a": "Das **Datenbankschema** ist der Bauplan der Datenbank. Es legt fest, welche Tabellen es gibt, welche Attribute sie haben und wie sie miteinander verknüpft sind."
+      },
+      {
+        "id": "mm2ahfi4dzdomwvmisa",
+        "q": "Datenredundanz in DB",
+        "a": "Das mehrfache Vorkommen derselben Information in einer Datenbank. Führt zu unnötigem Speicherverbrauch und der Gefahr von Inkonsistenzen (Widersprüchen)."
+      },
+      {
+        "id": "mm2ahla0e8917236fub",
+        "q": "Normalisierung in DB",
+        "a": "Schrittweises Zerlegen von Tabellen zur Vermeidung von Redundanzen und Anomalien.\n1. **NF**: Atomarität (keine Listen in Feldern).\n2. **NF**: 1. NF + jedes Nicht-Primärattribut ist vom PK voll funktional abhängig.\n3. **NF**: 2. NF + keine transitiven Abhängigkeiten."
+      },
+      {
+        "id": "mm2aigquyav43s22gth",
+        "q": "Ein Datensatz (Record), Zeile (Tupel), Schlüssel (Keys)",
+        "a": "Diese Begriffe beschreiben die horizontale Struktur einer Tabelle. Ein **Tupel** ist ein konkretes Objekt (z. B. Kunde Müller). **Keys** (Schlüssel) dienen der Identifikation."
+      },
+      {
+        "id": "mm2aioqtnqoc70tmpk",
+        "q": "Anomalie in DB",
+        "a": "Fehlverhalten durch schlechtes DB-Design:\n- **Einfüge-Anomalie**: Daten können nicht gespeichert werden, weil ein Teil des PK fehlt.\n- **Änderungs-Anomalie**: Ein Wert muss an vielen Stellen geändert werden (Gefahr der Inkonsistenz).\n- **Lösch-Anomalie**: Beim Löschen eines Wertes gehen ungewollt andere Informationen verloren."
+      },
+      {
+        "id": "mm2aqmzd859wuu4qs6r",
+        "q": "Multiplizietaet in UML",
+        "a": "Gibt den Bereich der erlaubten Kardinalität an (z. B. `1..4` bedeutet mindestens 1, maximal 4 Assoziationen)."
+      },
+      {
+        "id": "mm2asktyzzxtjwvkkso",
+        "q": "Referentielle Integritaet",
+        "a": "Sicherstellung, dass Fremdschlüssel immer auf existierende Primärschlüssel verweisen.\n\n**Was passiert beim Löschen?**\n- **Restrict**: Löschen verboten, solange Abhängigkeiten bestehen.\n- **Cascade**: Alle abhängigen Datensätze werden mitgelöscht.\n- **Set Null**: Der Fremdschlüssel wird auf NULL gesetzt."
+      },
+      {
+        "id": "mm2ay5q94mg5yrb3hqb",
+        "q": "Kardinalitat (Mengenangabe)",
+        "a": "Beschreibt die Anzahl der Entitäten, die in einer Beziehung zueinander stehen (1, n, m)."
+      },
+      {
+        "id": "mm398n4w7akbf7qcppf",
+        "q": "Unit-Test",
+        "a": "Ein Test, der die kleinste isolierbare Komponente einer Software (z. B. eine einzelne Funktion oder Klasse) auf ihre korrekte Funktion prüft."
+      },
+      {
+        "id": "mm3992biz0r6hxfqvq",
+        "q": "Whitebox und Blackbox Test",
+        "a": "- **Blackbox**: Test gegen die Spezifikation. Interner Code unbekannt. Fokus auf Input/Output.\n- **Whitebox**: Test der internen Programmlogik. Kenntnis des Quellcodes erforderlich. Ziel: Abdeckung aller Pfade/Zweige."
+      }
+    ]
+  },
+  {
+    "name": "Wirtschafts- und Sozialkunde (WISO)",
+    "color": "#e57373",
+    "cards": [
+      {
+        "q": "Was ist der Unterschied zwischen **Individualversicherung** und **Sozialversicherung**?",
+        "a": "Die Sozialversicherung ist eine gesetzliche Pflichtversicherung, während die Individualversicherung auf freiwilligen Verträgen basiert."
+      },
+      {
+        "q": "Nenne die 5 Säulen der **Sozialversicherung**.",
+        "a": "- Krankenversicherung\n- Rentenversicherung\n- Arbeitslosenversicherung\n- Pflegeversicherung\n- Unfallversicherung"
+      },
+      {
+        "q": "Welche Sozialversicherung ist die einzige, die allein vom Arbeitgeber getragen wird?",
+        "a": "Die **Unfallversicherung** (Berufsgenossenschaft)."
+      }
+    ]
+  }
+]
