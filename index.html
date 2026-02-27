@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,428 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-
-/* === RESET === */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-button, input, textarea, select { font-family: inherit; }
-
-/* === BASE === */
-html { height: 100%; }
-body {
-height: 100%;
-background: #17212b;
-color: #d4dde8;
-font-family: 'Nunito', sans-serif;
-display: flex;
-flex-direction: column;
-overflow: hidden;
-}
-
-/* === SCROLLBAR === */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #293643; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #3e5060; }
-
-/* === TOPBAR === */
-#topbar {
-flex-shrink: 0;
-height: 52px;
-background: #232e3c;
-border-bottom: 1px solid #293643;
-display: flex;
-align-items: center;
-gap: 12px;
-padding: 0 16px;
-}
-#topbar .logo {
-width: 34px; height: 34px;
-background: #5288c1;
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-font-size: 17px; font-weight: 800; color: #fff;
-flex-shrink: 0;
-}
-#topbar .ttxt { flex: 1; min-width: 0; }
-#topbar .ttitle { font-size: 15px; font-weight: 700; color: #ffffff; line-height: 1.2; }
-#topbar .tsub { font-size: 11px; color: #7d9bbf; font-family: 'JetBrains Mono', monospace; }
-#topbar .langbox { display: flex; gap: 2px; background: #17212b; border-radius: 8px; padding: 3px; }
-#topbar .langbox button {
-padding: 4px 10px; border: none; cursor: pointer; border-radius: 6px;
-font-size: 12px; font-weight: 700; background: transparent; color: #7d9bbf;
-transition: background .2s, color .2s;
-}
-#topbar .langbox button.active { background: #5288c1; color: #ffffff; }
-#menuBtn {
-display: none;
-width: 30px; height: 30px; border: none; cursor: pointer;
-background: transparent; color: #7d9bbf; font-size: 20px;
-border-radius: 8px; align-items: center; justify-content: center;
-flex-shrink: 0;
-}
-
-/* === LAYOUT === */
-#layout {
-flex: 1;
-display: flex;
-overflow: hidden;
-min-height: 0;
-}
-
-/* === SIDEBAR === */
-#sidebar {
-width: 270px;
-flex-shrink: 0;
-background: #232e3c;
-border-right: 1px solid #293643;
-display: flex;
-flex-direction: column;
-overflow: hidden;
-transition: transform .3s;
-z-index: 50;
-}
-#sidebar .sbhead {
-flex-shrink: 0;
-padding: 12px;
-border-bottom: 1px solid #293643;
-display: flex; align-items: center; gap: 6px;
-}
-#sidebar .sblabel {
-flex: 1; font-size: 11px; font-weight: 800;
-letter-spacing: .8px; text-transform: uppercase;
-color: #4a6b8a; font-family: 'JetBrains Mono', monospace;
-}
-#sidebar .sbsearch {
-flex-shrink: 0;
-padding: 8px 12px;
-border-bottom: 1px solid #293643;
-}
-#sidebar .sbsearch input {
-width: 100%; background: #17212b; border: 1px solid #293643;
-border-radius: 8px; padding: 7px 11px;
-font-size: 13px; color: #d4dde8; outline: none;
-transition: border-color .2s;
-}
-#sidebar .sbsearch input:focus { border-color: #5288c1; }
-#sidebar .sbsearch input::placeholder { color: #4a6b8a; }
-#sidebar .sblist { flex: 1; overflow-y: auto; padding: 6px; }
-#sidebar .sbfoot {
-flex-shrink: 0;
-padding: 8px;
-border-top: 1px solid #293643;
-}
-
-/* topic items */
-.titem {
-display: flex; align-items: center; gap: 10px;
-padding: 9px 10px; border-radius: 8px; cursor: pointer;
-margin-bottom: 2px; position: relative;
-transition: background .15s;
-}
-.titem:hover { background: #1c2733; }
-.titem.active { background: #2b5278; }
-.tdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.tname {
-flex: 1; font-size: 14px; font-weight: 600; color: #d4dde8;
-overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.tbadge {
-font-size: 11px; color: #7d9bbf;
-background: #17212b; padding: 2px 7px; border-radius: 10px;
-font-family: 'JetBrains Mono', monospace; flex-shrink: 0;
-}
-.tacts { display: none; gap: 3px; align-items: center; }
-.titem:hover .tacts { display: flex; }
-.titem:hover .tbadge { display: none; }
-
-/* === MAIN === */
-#main {
-flex: 1; min-width: 0;
-display: flex; flex-direction: column;
-overflow: hidden;
-background: #17212b;
-}
-
-/* empty */
-#emptyState {
-flex: 1; display: flex; flex-direction: column;
-align-items: center; justify-content: center;
-gap: 14px; padding: 40px; text-align: center;
-}
-.eico { font-size: 72px; opacity: .14; line-height: 1; }
-.etitle { font-size: 22px; font-weight: 800; color: #7d9bbf; }
-.edesc { font-size: 14px; color: #4a6b8a; max-width: 300px; line-height: 1.65; }
-
-/* topic view */
-#topicView {
-display: none;
-flex: 1; flex-direction: column;
-overflow: hidden; min-height: 0;
-}
-.thdr {
-flex-shrink: 0;
-padding: 13px 20px; background: #232e3c;
-border-bottom: 1px solid #293643;
-display: flex; align-items: center; gap: 12px;
-}
-.thdr-name { font-size: 17px; font-weight: 800; color: #ffffff; flex: 1; }
-.thdr-meta { font-size: 12px; color: #7d9bbf; font-family: 'JetBrains Mono', monospace; }
-
-/* tabs */
-.tabbar {
-flex-shrink: 0;
-display: flex;
-background: #232e3c;
-border-bottom: 1px solid #293643;
-padding: 0 20px;
-}
-.tabbar button {
-padding: 11px 16px; border: none; cursor: pointer;
-background: transparent; font-size: 13px; font-weight: 700;
-color: #7d9bbf; border-bottom: 2px solid transparent;
-margin-bottom: -1px; transition: color .2s, border-color .2s;
-}
-.tabbar button:hover { color: #d4dde8; }
-.tabbar button.active { color: #6ab3f3; border-bottom-color: #5288c1; }
-
-/* panes */
-.pane { display: none; flex: 1; overflow: hidden; min-height: 0; flex-direction: column; }
-.pane.on { display: flex; }
-
-/* === CARDS PANE === */
-.cscroll { flex: 1; overflow-y: auto; padding: 16px 20px; }
-.addsec {
-margin-bottom: 14px; background: #232e3c;
-border: 1px solid #293643; border-radius: 12px; overflow: hidden;
-}
-.addtog {
-width: 100%; padding: 11px 15px; border: none; cursor: pointer;
-background: transparent; color: #7d9bbf;
-display: flex; align-items: center; gap: 8px;
-font-size: 13px; font-weight: 600; transition: color .2s;
-}
-.addtog:hover { color: #d4dde8; }
-.addtog .arr { transition: transform .2s; font-size: 10px; }
-.addtog.open .arr { transform: rotate(90deg); }
-.addbody { display: none; padding: 13px 15px; border-top: 1px solid #293643; }
-.addbody.open { display: block; }
-.frow { display: flex; gap: 10px; }
-.fg { display: flex; flex-direction: column; gap: 5px; flex: 1; }
-.fg label { font-size: 11px; font-weight: 700; letter-spacing: .5px; color: #7d9bbf; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
-.fi, .fta {
-background: #17212b; border: 1px solid #293643;
-border-radius: 8px; color: #d4dde8;
-font-size: 14px; padding: 9px 12px;
-outline: none; width: 100%; transition: border-color .2s;
-}
-.fi:focus, .fta:focus { border-color: #5288c1; }
-.fta { resize: vertical; min-height: 68px; }
-.factions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
-
-.cgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
-.ccard { background: #232e3c; border: 1px solid #293643; border-radius: 12px; overflow: hidden; transition: transform .2s, box-shadow .2s; }
-.ccard:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.55); }
-.cq { padding: 12px 14px; background: #2b5278; font-size: 13px; font-weight: 500; color: #e8f0f8; display: flex; gap: 8px; align-items: flex-start; border-bottom: 1px solid #293643; }
-.ca { padding: 12px 14px; font-size: 13px; font-weight: 400; color: #d4dde8; display: flex; gap: 8px; align-items: flex-start; }
-.cq b, .ca b, .fctxt b { font-weight: 800; color: #ffffff; }
-.cq h1, .ca h1, .fctxt h1 { font-size: 1.5em; margin: 8px 0; }
-.cq h2, .ca h2, .fctxt h2 { font-size: 1.3em; margin: 6px 0; }
-.cq h3, .ca h3, .fctxt h3 { font-size: 1.1em; margin: 4px 0; }
-.ipre { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.ipre div { position: relative; width: 60px; height: 60px; border: 1px solid #293643; border-radius: 4px; overflow: hidden; background: #000; }
-.ipre img { width: 100%; height: 100%; object-fit: cover; }
-.ipre .del { position: absolute; top: 0; right: 0; background: rgba(229,115,115,0.8); color: white; border: none; font-size: 10px; cursor: pointer; padding: 2px 4px; }
-.pill { font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 20px; flex-shrink: 0; margin-top: 1px; white-space: nowrap; }
-.pq { background: rgba(82,136,193,.3); color: #6ab3f3; border: 1px solid rgba(106,179,243,.22); }
-.pa { background: rgba(129,199,132,.2); color: #81c784; border: 1px solid rgba(129,199,132,.28); }
-.cfoot { padding: 6px 10px; border-top: 1px solid #293643; display: flex; justify-content: flex-end; gap: 4px; background: #1c2733; }
-.cta { width: 26px; height: 26px; border: none; cursor: pointer; background: transparent; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #7d9bbf; transition: background .15s, color .15s; }
-.cta:hover { background: #293643; color: #d4dde8; }
-.cta.del:hover { background: rgba(229,115,115,.18); color: #e57373; }
-
-/* === PRACTICE PANE === */
-.pwrap { flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 24px 20px; gap: 24px; }
-.pstats { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; flex-shrink: 0; }
-.chip { display: flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-.cdone  { background: rgba(129,199,132,.15); color: #81c784; border: 1px solid rgba(129,199,132,.28); }
-.cleft  { background: rgba(82,136,193,.15);  color: #6ab3f3; border: 1px solid rgba(106,179,243,.22); }
-.clater { background: rgba(255,183,77,.13);  color: #ffb74d; border: 1px solid rgba(255,183,77,.25); }
-
-/* flashcard */
-.fcard { width: 100%; max-width: 640px; cursor: pointer; perspective: 1200px; user-select: none; flex-shrink: 0; }
-.fcinn {
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform .52s cubic-bezier(.4,0,.2,1);
-  display: grid;
-}
-.fcinn.flip { transform: rotateY(180deg); }
-.fcface {
-  grid-area: 1 / 1;
-  width: 100%;
-  min-height: 260px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 1px solid #293643;
-  overflow-y: auto;
-}
-.fcfront { background: #2b5278; }
-.fcback  { background: #232e3c; transform: rotateY(180deg); }
-.fcpill { font-size: 11px; font-weight: 800; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
-.fcpq { background: rgba(82,136,193,.32); color: #6ab3f3; border: 1px solid rgba(106,179,243,.22); }
-.fcpa { background: rgba(129,199,132,.2);  color: #81c784; border: 1px solid rgba(129,199,132,.28); }
-.fctxt { font-size: 20px; font-weight: 500; line-height: 1.4; color: #ffffff; width: 100%; }
-.fctxt img, .cq img, .ca img { max-width: 100%; max-height: 340px; object-fit: contain; border-radius: 8px; display: block; margin: 0 auto; }
-.iwrap { position: relative; display: inline-block; margin: 10px auto; max-width: 100%; }
-.fmt-flex { display: flex; align-items: center; justify-content: center; gap: 28px; width: 100%; text-align: left; flex-wrap: wrap; }
-.fmt-text { flex: 1.3; min-width: 200px; }
-.fmt-img { flex: 1; min-width: 200px; display: flex; justify-content: center; }
-.iwrap.in-flex { margin: 0; }
-@media (max-width: 640px) {
-  .fmt-flex { flex-direction: column; text-align: center; gap: 16px; }
-  .fmt-text { text-align: center; }
-}
-.iwrap .zb { position: absolute; bottom: 8px; right: 8px; background: rgba(35,46,60,0.8); border: 1px solid #293643; color: #fff; border-radius: 6px; width: 30px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; opacity: 0; transition: opacity 0.2s; }
-.iwrap:hover .zb { opacity: 1; }
-.fchint { margin-top: 16px; font-size: 11px; color: #4a6b8a; font-family: 'JetBrains Mono', monospace; }
-
-/* progress */
-.progarea { width: 100%; max-width: 540px; flex-shrink: 0; }
-.proglabels { display: flex; justify-content: space-between; margin-bottom: 7px; font-size: 11px; color: #7d9bbf; font-family: 'JetBrains Mono', monospace; }
-.proglabels .pct { color: #81c784; font-weight: 800; }
-.progtrack { width: 100%; height: 10px; background: #293643; border-radius: 6px; overflow: hidden; position: relative; box-shadow: inset 0 1px 3px rgba(0,0,0,.4); }
-.progdone  { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(90deg, #4e8f52, #81c784); border-radius: 6px; transition: width .45s; }
-.proglater { position: absolute; top: 0; height: 100%; background: linear-gradient(90deg, #c4893a, #ffb74d); border-radius: 0 6px 6px 0; transition: left .45s, width .45s; }
-.progdots { display: flex; gap: 4px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-.dot { width: 10px; height: 10px; border-radius: 50%; transition: all .3s; flex-shrink: 0; }
-.d-done  { background: #81c784; }
-.d-later { background: #ffb74d; }
-.d-pend  { background: #293643; }
-.d-cur   { background: #6ab3f3; transform: scale(1.5); box-shadow: 0 0 8px rgba(106,179,243,.7); }
-
-/* practice buttons */
-.pctrls { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; flex-shrink: 0; }
-.pbtn { padding: 11px 24px; border-radius: 12px; border: none; cursor: pointer; font-size: 14px; font-weight: 700; transition: background .2s, color .2s; display: flex; align-items: center; gap: 7px; }
-.pbtn-skip    { background: rgba(255,183,77,.13); color: #ffb74d; border: 1px solid rgba(255,183,77,.3); }
-.pbtn-skip:hover  { background: #ffb74d; color: #1a1a1a; }
-.pbtn-know    { background: rgba(129,199,132,.15); color: #81c784; border: 1px solid rgba(129,199,132,.3); }
-.pbtn-know:hover  { background: #81c784; color: #1a1a1a; }
-.pbtn-restart { background: #5288c1; color: #ffffff; }
-.pbtn-restart:hover { background: #3e6e9e; }
-.keyhint { font-size: 10px; color: #4a6b8a; font-family: 'JetBrains Mono', monospace; text-align: center; margin-top: auto; padding-top: 16px; flex-shrink: 0; }
-.pempty { text-align: center; color: #4a6b8a; font-size: 15px; line-height: 1.7; }
-
-/* finish */
-.pfinish { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
-.pfinish .ficon { font-size: 72px; animation: popIn .5s cubic-bezier(.4,0,.2,1); }
-@keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.pfinish .ftitle { font-size: 26px; font-weight: 800; color: #ffffff; }
-.pfinish .fsub   { font-size: 14px; color: #7d9bbf; max-width: 300px; line-height: 1.6; }
-
-/* === BUTTONS === */
-.btn { border: none; cursor: pointer; border-radius: 8px; font-size: 13px; font-weight: 600; padding: 8px 14px; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, color .2s; }
-.bp { background: #5288c1; color: #ffffff; }
-.bp:hover { background: #3e6e9e; }
-.bg { background: #1c2733; color: #7d9bbf; }
-.bg:hover { background: #293643; color: #d4dde8; }
-.bd { background: rgba(229,115,115,.12); color: #e57373; border: 1px solid rgba(229,115,115,.3); }
-.bd:hover { background: #e57373; color: #ffffff; }
-.bsm { padding: 6px 10px; font-size: 12px; }
-.bfull { width: 100%; justify-content: center; }
-
-.ic-btn { width: 28px; height: 28px; border: none; cursor: pointer; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: background .2s, color .2s; flex-shrink: 0; }
-.ib-blue  { background: #5288c1; color: #ffffff; }
-.ib-blue:hover { background: #3e6e9e; }
-.ib-ghost { background: transparent; color: #7d9bbf; }
-.ib-ghost:hover { background: #293643; color: #d4dde8; }
-
-/* === OVERLAYS / MODALS === */
-.overlay {
-position: fixed; inset: 0;
-background: rgba(0,0,0,.68);
-backdrop-filter: blur(4px);
-z-index: 900;
-display: flex; align-items: center; justify-content: center;
-padding: 20px;
-opacity: 0; pointer-events: none;
-transition: opacity .2s;
-}
-.overlay.open { opacity: 1; pointer-events: all; }
-.modal {
-background: #232e3c;
-border: 1px solid #293643;
-border-radius: 12px;
-padding: 24px;
-width: 100%; max-width: 460px;
-box-shadow: 0 16px 48px rgba(0,0,0,.7);
-transform: translateY(12px);
-transition: transform .2s;
-}
-.overlay.open .modal { transform: translateY(0); }
-.mtitle { font-size: 17px; font-weight: 800; color: #ffffff; margin-bottom: 16px; }
-.mdesc  { font-size: 13px; color: #7d9bbf; margin-bottom: 16px; line-height: 1.6; }
-.macts  { display: flex; gap: 8px; justify-content: flex-end; margin-top: 20px; flex-wrap: wrap; }
-
-.itabs { display: flex; gap: 2px; background: #17212b; border-radius: 8px; padding: 3px; margin-bottom: 16px; }
-.itab  { flex: 1; padding: 7px; text-align: center; border: none; cursor: pointer; background: transparent; color: #7d9bbf; border-radius: 6px; font-size: 12px; font-weight: 700; transition: background .2s, color .2s; }
-.itab.active { background: #5288c1; color: #ffffff; }
-
-/* === TOASTS === */
-#toasts { position: fixed; bottom: 48px; right: 20px; z-index: 999; display: flex; flex-direction: column-reverse; gap: 8px; pointer-events: none; }
-.toast { background: #232e3c; border: 1px solid #293643; border-radius: 8px; padding: 11px 16px; font-size: 13px; font-weight: 600; color: #d4dde8; box-shadow: 0 8px 32px rgba(0,0,0,.55); max-width: 300px; display: flex; align-items: center; gap: 10px; animation: tIn .3s ease; }
-.tok  { border-color: rgba(129,199,132,.45); color: #81c784; }
-.terr { border-color: rgba(229,115,115,.45); color: #e57373; }
-.tinf { border-color: rgba(82,136,193,.45);  color: #6ab3f3; }
-@keyframes tIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
-
-/* color picker */
-.cldots { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
-.cldot  { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform .2s, border-color .2s; }
-.cldot.sel { border-color: #ffffff; transform: scale(1.15); }
-
-/* === FOOTER === */
-#footer {
-flex-shrink: 0;
-height: 36px;
-background: #232e3c;
-border-top: 1px solid #293643;
-display: flex; align-items: center; justify-content: center; gap: 8px;
-font-size: 12px; color: #4a6b8a;
-font-family: 'JetBrains Mono', monospace;
-}
-#footer svg { width: 14px; height: 14px; flex-shrink: 0; fill: #4a6b8a; }
-#footer a { color: #7d9bbf; text-decoration: none; font-weight: 600; transition: color .2s; }
-#footer a:hover { color: #6ab3f3; }
-
-/* === MOBILE === */
-@media (max-width: 640px) {
-#menuBtn { display: flex; }
-#sidebar {
-position: fixed;
-top: 52px; left: 0; bottom: 36px;
-width: 270px;
-z-index: 800;
-transform: translateX(-100%);
-box-shadow: 6px 0 24px rgba(0,0,0,.6);
-background: #232e3c;
-}
-#sidebar.open { transform: translateX(0); }
-}
-</style>
-
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <!-- TOPBAR -->
-
 <div id="topbar">
   <button id="menuBtn" onclick="toggleSidebar()">☰</button>
   <div class="logo">F</div>
@@ -444,11 +26,9 @@ background: #232e3c;
 </div>
 
 <!-- LAYOUT -->
-
 <div id="layout">
 
   <!-- SIDEBAR -->
-
   <div id="sidebar">
     <div class="sbhead">
       <span class="sblabel" id="lTopics">Topics</span>
@@ -457,7 +37,7 @@ background: #232e3c;
       <button class="ic-btn ib-blue" onclick="openNewTopic()">+</button>
     </div>
     <div class="sbsearch">
-      <input id="searchTopics" placeholder="Search…" oninput="renderTopics()">
+      <input id="searchGlobal" placeholder="Global Search…" oninput="renderTopics()">
     </div>
     <div class="sblist" id="topicsList"></div>
     <div class="sbhead" id="sbheadLib" style="border-top:1px solid #293643;margin-top:10px">
@@ -472,70 +52,78 @@ background: #232e3c;
   </div>
 
   <!-- MAIN -->
-
   <div id="main">
 
-<!-- EMPTY -->
-<div id="emptyState">
-  <div class="eico">📚</div>
-  <div class="etitle" id="lWelcome">Welcome!</div>
-  <div class="edesc" id="lWelcomeDesc">Create a topic on the left or import a JSON file.</div>
-</div>
+    <!-- EMPTY -->
+    <div id="emptyState">
+      <div class="eico">📚</div>
+      <div class="etitle" id="lWelcome">Welcome!</div>
+      <div class="edesc" id="lWelcomeDesc">Create a topic on the left or import a JSON file.</div>
+    </div>
 
-<!-- TOPIC VIEW -->
-<div id="topicView">
-  <div class="thdr">
-    <div class="thdr-name" id="thdrName"></div>
-    <div class="thdr-meta" id="thdrMeta"></div>
-    <button class="btn bg bsm" onclick="openRename()">✏️ <span id="lRename">Rename</span></button>
-  </div>
-  <div class="tabbar">
-    <button class="active" data-tab="practice" onclick="switchTab('practice')">🎯 <span id="lTabPractice">Practice</span></button>
-    <button data-tab="cards" onclick="switchTab('cards')">🗂 <span id="lTabCards">Edit</span></button>
-  </div>
+    <!-- TOPIC VIEW -->
+    <div id="topicView">
+      <div class="thdr">
+        <div class="thdr-name" id="thdrName"></div>
+        <div class="thdr-meta" id="thdrMeta"></div>
+        <div class="thdr-search">
+          <input id="searchLocal" placeholder="Search in topic…" oninput="renderCards()">
+        </div>
+        <button class="btn bg bsm" onclick="openRename()">✏️ <span id="lRename">Rename</span></button>
+      </div>
+      <div class="tabbar">
+        <button class="active" data-tab="practice" onclick="switchTab('practice')">🎯 <span id="lTabPractice">Practice</span></button>
+        <button data-tab="cards" onclick="switchTab('cards')">🗂 <span id="lTabCards">Edit</span></button>
+      </div>
 
-  <!-- PRACTICE -->
-  <div class="pane on" id="panePractice">
-    <div class="pwrap" id="pracWrap"></div>
-  </div>
+      <!-- PRACTICE -->
+      <div class="pane on" id="panePractice">
+        <div class="pwrap" id="pracWrap"></div>
+      </div>
 
-  <!-- CARDS -->
-  <div class="pane" id="paneCards">
-    <div class="cscroll">
-      <div class="addsec">
-        <button class="addtog" id="addToggle" onclick="toggleAdd()">
-          <span class="arr">▶</span>
-          <span id="lAddCard">+ Add new card</span>
-        </button>
-        <div class="addbody" id="addBody">
-          <div class="frow">
-            <div class="fg">
-              <label style="display:flex;align-items:center;justify-content:space-between">
-                <span id="lQuestion">Question</span>
-                <button class="cta" title="Image" style="width:auto;height:auto;padding:2px 5px" onclick="pickImg('inpQ')">🖼️</button>
-              </label>
-              <textarea class="fta" id="inpQ" rows="3"></textarea>
-              <div id="preQ" class="ipre"></div>
-            </div>
-            <div class="fg">
-              <label style="display:flex;align-items:center;justify-content:space-between">
-                <span id="lAnswer">Answer</span>
-                <button class="cta" title="Image" style="width:auto;height:auto;padding:2px 5px" onclick="pickImg('inpA')">🖼️</button>
-              </label>
-              <textarea class="fta" id="inpA" rows="3"></textarea>
-              <div id="preA" class="ipre"></div>
+      <!-- CARDS -->
+      <div class="pane" id="paneCards">
+        <div class="cscroll">
+          <div class="addsec">
+            <button class="addtog" id="addToggle" onclick="toggleAdd()">
+              <span class="arr">▶</span>
+              <span id="lAddCard">+ Add new card</span>
+            </button>
+            <div class="addbody" id="addBody">
+              <div class="frow">
+                <div class="fg">
+                  <label style="display:flex;align-items:center;justify-content:space-between">
+                    <span id="lQuestion">Question</span>
+                    <button class="cta" title="Image" style="width:auto;height:auto;padding:2px 5px" onclick="pickImg('inpQ')">🖼️</button>
+                  </label>
+                  <textarea class="fta" id="inpQ" rows="3"></textarea>
+                  <div id="preQ" class="ipre"></div>
+                </div>
+                <div class="fg">
+                  <label style="display:flex;align-items:center;justify-content:space-between">
+                    <span id="lAnswer">Answer</span>
+                    <button class="cta" title="Image" style="width:auto;height:auto;padding:2px 5px" onclick="pickImg('inpA')">🖼️</button>
+                  </label>
+                  <textarea class="fta" id="inpA" rows="3"></textarea>
+                  <div id="preA" class="ipre"></div>
+                </div>
+              </div>
+              <div class="frow" style="margin-top:10px">
+                <div class="fg">
+                  <label id="lArea">Area</label>
+                  <input class="fi" id="inpArea" placeholder="e.g. Database, ERM...">
+                </div>
+              </div>
+              <div class="factions">
+                <button class="btn bg bsm" onclick="clearCard()"><span id="lClear">Clear</span></button>
+                <button class="btn bp bsm" onclick="saveCard()">💾 <span id="lSaveCard">Save card</span></button>
+              </div>
             </div>
           </div>
-          <div class="factions">
-            <button class="btn bg bsm" onclick="clearCard()"><span id="lClear">Clear</span></button>
-            <button class="btn bp bsm" onclick="saveCard()">💾 <span id="lSaveCard">Save card</span></button>
-          </div>
+          <div class="cgrid" id="cardsGrid"></div>
         </div>
       </div>
-      <div class="cgrid" id="cardsGrid"></div>
-    </div>
-  </div>
-</div><!-- /topicView -->
+    </div><!-- /topicView -->
 
   </div><!-- /main -->
 </div><!-- /layout -->
@@ -543,14 +131,12 @@ background: #232e3c;
 <input type="file" id="imgUpload" accept="image/*" style="display:none" onchange="onImgSelected(event)">
 
 <!-- FOOTER -->
-
 <div id="footer">
   <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
   <a href="https://github.com/drofji/qa-flashcards" target="_blank" rel="noopener">QA Flashcards 2026</a>
 </div>
 
 <!-- MODALS -->
-
 <div class="overlay" id="mNewTopic">
   <div class="modal">
     <div class="mtitle" id="lNewTopicTitle">New Topic</div>
@@ -636,13 +222,17 @@ background: #232e3c;
       <textarea class="fta" id="inpEditQ" rows="3"></textarea>
       <div id="preEditQ" class="ipre"></div>
     </div>
-    <div class="fg">
+    <div class="fg" style="margin-bottom:12px">
       <label style="display:flex;align-items:center;justify-content:space-between">
         <span id="lEditA">Answer</span>
         <button class="cta" title="Image" style="width:auto;height:auto;padding:2px 5px" onclick="pickImg('inpEditA')">🖼️</button>
       </label>
       <textarea class="fta" id="inpEditA" rows="3"></textarea>
       <div id="preEditA" class="ipre"></div>
+    </div>
+    <div class="fg">
+      <label id="lArea">Area</label>
+      <input class="fi" id="inpEditArea">
     </div>
     <div class="macts">
       <button class="btn bg" onclick="closeModal('mEditCard')"><span id="lCancelE">Cancel</span></button>
@@ -662,652 +252,7 @@ background: #232e3c;
 
 <div id="toasts"></div>
 
-<script>
-'use strict';
-
-// ─── I18N ───
-const TX = {
-  en: {
-    appTitle:'QA FlashCards', appSub:'Study Cards · Flashcard App',
-    lTopics:'Topics', lWelcome:'Welcome!',
-    lWelcomeDesc:'Create a topic on the left or import a JSON file.',
-    lAddCard:'+ Add new card', lQuestion:'Question', lAnswer:'Answer',
-    lClear:'Clear', lSaveCard:'Save card',
-    lTabCards:'Edit', lTabPractice:'Practice',
-    lRename:'Rename', lNewTopicTitle:'New Topic',
-    lTopicName:'Topic name', lTopicColor:'Color',
-    lCancel:'Cancel', lCreate:'Create',
-    lRenameTitle:'Rename Topic', lNewName:'New name',
-    lCancelR:'Cancel', lSave:'Save',
-    lDeleteTitle:'Delete Topic?', lDeleteDesc:'This cannot be undone. All cards will be deleted.',
-    lCancelD:'Cancel', lDelete:'Delete',
-    lImportTitle:'Import Topics', lImportFileDesc:'Select a JSON file with exported topics.',
-    iTabFile:'File', lChooseFile:'Choose file', lImportUrlDesc:'Enter a JSON URL.',
-    lCancelI:'Cancel', lDoImport:'Import',
-    lEditCardTitle:'Edit Card', lEditQ:'Question', lEditA:'Answer',
-    lCancelE:'Cancel', lSaveE:'Save', lExportTopic:'Export topic',
-    lLibrary: 'Library', ihkLibrary: 'IHK AP2 FA Preparation (2026)',
-    cardsUnit:'card', cardsUnitP:'cards',
-    practiceFlip:'Click to flip',
-    nothingHere:'No cards yet', nothingHereDesc:'Switch to Edit and add some cards.',
-    importedOk:'Topic(s) imported!', importError:'Import failed.',
-    topicCreated:'Topic created!', topicDeleted:'Topic deleted.',
-    topicRenamed:'Renamed!', cardSaved:'Card saved!',
-    cardDeleted:'Card deleted.', cardEdited:'Card updated!',
-    exportedOk:'Exported!', selectFile:'Please select a file or enter a URL.',
-    noTopic:'No topic selected.', searchPh:'Search…',
-    fetchErr:'Could not load URL.', delCardQ:'Delete this card?',
-    btnSkip:'Later ⏱', btnKnow:'I know it ✓', btnRestart:'Restart 🔄',
-    finTitle:'All done! 🎉', finSub:'You answered every card.',
-    sDone:'Known', sLater:'Later', sLeft:'Remaining',
-    progLabel:'Progress', pctLabel:'Known',
-    lblQ:'Question', lblA:'Answer',
-    keyHint:'Space = flip · → = known · ↓ = later',
-    errFields:'Please fill in both fields.', errName:'Please enter a name.',
-  },
-  de: {
-    appTitle:'QA FlashCards', appSub:'Lernkarten · Karteikarten',
-    lTopics:'Themen', lWelcome:'Willkommen!',
-    lWelcomeDesc:'Erstelle ein Thema links oder importiere eine JSON-Datei.',
-    lAddCard:'+ Neue Karte hinzufügen', lQuestion:'Frage', lAnswer:'Antwort',
-    lClear:'Leeren', lSaveCard:'Karte speichern',
-    lTabCards:'Bearbeiten', lTabPractice:'Üben',
-    lRename:'Umbenennen', lNewTopicTitle:'Neues Thema',
-    lTopicName:'Themenname', lTopicColor:'Farbe',
-    lCancel:'Abbrechen', lCreate:'Erstellen',
-    lRenameTitle:'Thema umbenennen', lNewName:'Neuer Name',
-    lCancelR:'Abbrechen', lSave:'Speichern',
-    lDeleteTitle:'Thema löschen?', lDeleteDesc:'Alle Karten werden gelöscht.',
-    lCancelD:'Abbrechen', lDelete:'Löschen',
-    lImportTitle:'Themen importieren', lImportFileDesc:'Wähle eine JSON-Datei.',
-    iTabFile:'Datei', lChooseFile:'Datei auswählen', lImportUrlDesc:'JSON-URL eingeben.',
-    lCancelI:'Abbrechen', lDoImport:'Importieren',
-    lEditCardTitle:'Karte bearbeiten', lEditQ:'Frage', lEditA:'Antwort',
-    lCancelE:'Abbrechen', lSaveE:'Speichern', lExportTopic:'Thema exportieren',
-    lLibrary: 'Bibliothek', ihkLibrary: 'IHK AP2 FA Vorbereitung (2026)',
-    cardsUnit:'Karte', cardsUnitP:'Karten',
-    practiceFlip:'Klicken zum Umdrehen',
-    nothingHere:'Keine Karten', nothingHereDesc:'Wechsle zu Bearbeiten und füge Karten hinzu.',
-    importedOk:'Importiert!', importError:'Import fehlgeschlagen.',
-    topicCreated:'Erstellt!', topicDeleted:'Gelöscht.',
-    topicRenamed:'Umbenannt!', cardSaved:'Gespeichert!',
-    cardDeleted:'Gelöscht.', cardEdited:'Aktualisiert!',
-    exportedOk:'Exportiert!', selectFile:'Bitte Datei oder URL angeben.',
-    noTopic:'Kein Thema ausgewählt.', searchPh:'Suchen…',
-    fetchErr:'URL konnte nicht geladen werden.', delCardQ:'Karte löschen?',
-    btnSkip:'Später ⏱', btnKnow:'Gewusst ✓', btnRestart:'Neustart 🔄',
-    finTitle:'Geschafft! 🎉', finSub:'Alle Karten beantwortet.',
-    sDone:'Gewusst', sLater:'Später', sLeft:'Verbleibend',
-    progLabel:'Fortschritt', pctLabel:'Gewusst',
-    lblQ:'Frage', lblA:'Antwort',
-    keyHint:'Leertaste = umdrehen · → = gewusst · ↓ = später',
-    errFields:'Bitte beide Felder ausfüllen.', errName:'Bitte Namen eingeben.',
-  }
-};
-let lang = localStorage.getItem('fc_lang') || 'en';
-const t = k => (TX[lang] || TX.en)[k] || k;
-
-const TXT_IDS = ['appTitle','appSub','lTopics','lWelcome','lWelcomeDesc',
-  'lAddCard','lQuestion','lAnswer','lClear','lSaveCard','lTabCards','lTabPractice',
-  'lRename','lNewTopicTitle','lTopicName','lTopicColor','lCancel','lCreate',
-  'lRenameTitle','lNewName','lCancelR','lSave','lDeleteTitle','lDeleteDesc',
-  'lCancelD','lDelete','lImportTitle','lImportFileDesc','iTabFile','lChooseFile',
-  'lImportUrlDesc','lCancelI','lDoImport','lEditCardTitle','lEditQ','lEditA',
-  'lCancelE','lSaveE','lExportTopic','lLibrary'];
-
-function applyLang() {
-  TXT_IDS.forEach(id => { const el=document.getElementById(id); if(el) el.textContent=t(id); });
-  document.getElementById('searchTopics').placeholder = t('searchPh');
-  document.querySelectorAll('[data-lang]').forEach(b => b.classList.toggle('active', b.dataset.lang===lang));
-  renderTopics();
-  renderLibrary();
-  if(curTopic){ renderCards(); if(curTab==='practice') renderPractice(); }
-}
-
-function setLang(l) {
-  lang = l;
-  localStorage.setItem('fc_lang', l);
-  applyLang();
-}
-
-// ─── COLORS ───
-const COLORS = ['#5288c1','#81c784','#e57373','#ffb74d','#ce93d8','#4dd0e1','#f06292','#aed581','#ff8a65','#90a4ae'];
-let selColor = COLORS[0];
-function buildColors() {
-  const row = document.getElementById('colorRow');
-  row.innerHTML = '';
-  COLORS.forEach(c => {
-    const d = document.createElement('div');
-    d.className = 'cldot' + (c===selColor?' sel':'');
-    d.style.background = c;
-    d.onclick = () => { selColor=c; buildColors(); };
-    row.appendChild(d);
-  });
-}
-
-// ─── DB ───
-let db;
-function initDB() {
-  return new Promise((res,rej) => {
-    const r = indexedDB.open('fc_db', 1);
-    r.onupgradeneeded = e => {
-      const d = e.target.result;
-      if(!d.objectStoreNames.contains('topics')) d.createObjectStore('topics',{keyPath:'id'});
-    };
-    r.onsuccess = e => { db=e.target.result; res(); };
-    r.onerror = e => rej(e);
-  });
-}
-const dbAll = () => new Promise((res,rej) => { const r=db.transaction('topics','readonly').objectStore('topics').getAll(); r.onsuccess=()=>res(r.result); r.onerror=e=>rej(e); });
-const dbPut = o => new Promise((res,rej) => { const r=db.transaction('topics','readwrite').objectStore('topics').put(o); r.onsuccess=()=>res(); r.onerror=e=>rej(e); });
-const dbDel = id => new Promise((res,rej) => { const r=db.transaction('topics','readwrite').objectStore('topics').delete(id); r.onsuccess=()=>res(); r.onerror=e=>rej(e); });
-
-// ─── STATE ───
-let topics=[], curTopic=null, curTab='practice';
-let pQ=[], pL=[], pD=[], pCur=null, pFlip=false;
-let delId=null, editId=null, renameId=null, importItab='file', importFile=null;
-const uid = () => Date.now().toString(36)+Math.random().toString(36).slice(2);
-
-// ─── TOAST ───
-function toast(msg, type='info', dur=3000) {
-  const c=document.getElementById('toasts'), el=document.createElement('div');
-  el.className='toast '+ ({success:'tok',error:'terr',info:'tinf'}[type]||'tinf');
-  el.innerHTML=`<span>${{success:'✅',error:'❌',info:'ℹ️'}[type]||''}</span> ${msg}`;
-  c.appendChild(el);
-  setTimeout(()=>{ el.style.transition='.3s'; el.style.opacity='0'; el.style.transform='translateX(20px)'; setTimeout(()=>el.remove(),320); }, dur);
-}
-
-// ─── MODAL ───
-function openModal(id) { document.getElementById(id).classList.add('open'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', e => { if(e.target===o) o.classList.remove('open'); }));
-
-// ─── UTILS ───
-const esc = s => { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; };
-const fmt = (s, img) => {
-  const iwrap = (src, alt='', cls='') => `<div class="iwrap ${cls}"><img src="${src}" alt="${alt}"><button class="zb" title="Zoom" onclick="event.stopPropagation();zoomImg('${src}')">🔍</button></div>`;
-  let h = '';
-  if (s) {
-    h = esc(s);
-    h = h.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-    h = h.replace(/__(.*?)__/g, '<b>$1</b>');
-    h = h.replace(/\*(.*?)\*/g, '<i>$1</i>');
-    h = h.replace(/_(.*?)_/g, '<i>$1</i>');
-    h = h.replace(/\\n/g, '<br>');
-    h = h.replace(/!\[(.*?)\]\(([^)]+)\)/g, (m, alt, src) => {
-      const rs = src.replace(/&amp;/g, '&');
-      return iwrap(rs, alt);
-    });
-    h = h.split(/\r?\n/).map(l => {
-      const tr = l.trim();
-      if(tr.startsWith('### ')) return `<h3>${tr.substring(4)}</h3>`;
-      if(tr.startsWith('## '))  return `<h2>${tr.substring(3)}</h2>`;
-      if(tr.startsWith('# '))   return `<h1>${tr.substring(2)}</h1>`;
-      if(tr.startsWith('- '))   return '• ' + tr.substring(2);
-      return l;
-    }).join('<br>');
-  }
-  if (s && img) return `<div class="fmt-flex"><div class="fmt-text">${h}</div><div class="fmt-img">${iwrap(img, '', 'in-flex')}</div></div>`;
-  if (img) return iwrap(img);
-  return h;
-};
-const shuffle = a => { const r=[...a]; for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]; } return r; };
-
-// ─── SIDEBAR TOGGLE ───
-function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
-function closeMobile() { if(window.innerWidth<=640) document.getElementById('sidebar').classList.remove('open'); }
-
-// ─── RENDER TOPICS ───
-function renderTopics() {
-  const q = document.getElementById('searchTopics').value.toLowerCase();
-  const list = document.getElementById('topicsList');
-  list.innerHTML = '';
-  const filtered = topics.filter(tp => tp.name.toLowerCase().includes(q));
-  if(!filtered.length) {
-    list.innerHTML = `<div style="padding:16px;text-align:center;font-size:13px;color:#4a6b8a">${q?'…':''}</div>`;
-    return;
-  }
-  filtered.forEach(tp => {
-    const n=tp.cards.length, el=document.createElement('div');
-    el.className='titem'+(curTopic?.id===tp.id?' active':'');
-    el.innerHTML=`<div class="tdot" style="background:${tp.color}"></div>
-      <div class="tname">${esc(tp.name)}</div>
-      <div class="tbadge">${n} ${n===1?t('cardsUnit'):t('cardsUnitP')}</div>
-      <div class="tacts">
-        <button class="cta" onclick="event.stopPropagation();openRenameFor('${tp.id}')">✏️</button>
-        <button class="cta" onclick="event.stopPropagation();exportOne('${tp.id}')">📤</button>
-        <button class="cta del" onclick="event.stopPropagation();askDelete('${tp.id}')">🗑</button>
-      </div>`;
-    el.addEventListener('click', () => selectTopic(tp.id));
-    list.appendChild(el);
-  });
-  document.getElementById('btnExportTopic').style.display = curTopic ? 'flex' : 'none';
-}
-
-// ─── SELECT TOPIC ───
-function selectTopic(id, forceTab) {
-  curTopic = topics.find(tp=>tp.id===id) || null;
-  renderTopics();
-  const empty = document.getElementById('emptyState');
-  const tv    = document.getElementById('topicView');
-  if(curTopic) {
-    empty.style.display = 'none';
-    tv.style.display = 'flex';
-    document.getElementById('thdrName').textContent = curTopic.name;
-    updateMeta();
-    document.getElementById('btnExportTopic').style.display = 'flex';
-    initPractice();
-    switchTab(forceTab || 'practice');
-    closeMobile();
-  } else {
-    empty.style.display = 'flex';
-    tv.style.display = 'none';
-    document.getElementById('btnExportTopic').style.display = 'none';
-  }
-}
-
-function updateMeta() {
-  if(!curTopic) return;
-  const n=curTopic.cards.length;
-  document.getElementById('thdrMeta').textContent=`${n} ${n===1?t('cardsUnit'):t('cardsUnitP')}`;
-}
-
-// ─── TABS ───
-function switchTab(tab) {
-  curTab = tab;
-  document.querySelectorAll('.tabbar button').forEach(b => b.classList.toggle('active', b.dataset.tab===tab));
-  document.getElementById('panePractice').className = 'pane'+(tab==='practice'?' on':'');
-  document.getElementById('paneCards').className    = 'pane'+(tab==='cards'?' on':'');
-  if(tab==='practice') renderPractice();
-  if(tab==='cards')    renderCards();
-}
-
-// ─── CARDS ───
-function renderCards() {
-  if(!curTopic) return;
-  const grid = document.getElementById('cardsGrid');
-  grid.innerHTML = '';
-  if(!curTopic.cards.length) {
-    grid.innerHTML=`<div style="grid-column:1/-1;padding:32px;text-align:center;color:#4a6b8a">
-      <div style="font-size:40px;margin-bottom:8px">🃏</div>
-      <div style="font-size:15px;font-weight:700;color:#7d9bbf;margin-bottom:4px">${t('nothingHere')}</div>
-      <div style="font-size:13px">${t('nothingHereDesc')}</div></div>`;
-    return;
-  }
-  curTopic.cards.forEach(card => {
-    const el=document.createElement('div'); el.className='ccard';
-    el.innerHTML=`<div class="cq"><span class="pill pq">${t('lblQ')}</span><span>${fmt(card.q, card.imgQ)}</span></div>
-      <div class="ca"><span class="pill pa">${t('lblA')}</span><span>${fmt(card.a, card.imgA)}</span></div>
-      <div class="cfoot">
-        <button class="cta" onclick="openEdit('${card.id}')">✏️</button>
-        <button class="cta del" onclick="delCard('${card.id}')">🗑</button>
-      </div>`;
-    grid.appendChild(el);
-  });
-  updateMeta();
-}
-
-function toggleAdd() {
-  const b=document.getElementById('addBody'), t=document.getElementById('addToggle');
-  const open=b.classList.toggle('open'); t.classList.toggle('open',open);
-}
-
-async function saveCard() {
-  if(!curTopic){ toast(t('noTopic'),'error'); return; }
-  const q=document.getElementById('inpQ').value.trim(), a=document.getElementById('inpA').value.trim();
-  const imgQ=tempImgs.inpQ, imgA=tempImgs.inpA;
-  if((!q && !imgQ) || (!a && !imgA)){ toast(t('errFields'),'error'); return; }
-  curTopic.cards.push({id:uid(),q,a,imgQ,imgA});
-  clearCard();
-  await dbPut(curTopic); renderCards(); renderTopics(); toast(t('cardSaved'),'success');
-}
-
-function clearCard() {
-  document.getElementById('inpQ').value=''; document.getElementById('inpA').value='';
-  tempImgs.inpQ=null; tempImgs.inpA=null;
-  renderImgPreview('inpQ'); renderImgPreview('inpA');
-}
-
-function delCard(id) {
-  if(!curTopic||!confirm(t('delCardQ'))) return;
-  curTopic.cards=curTopic.cards.filter(c=>c.id!==id);
-  dbPut(curTopic); renderCards(); renderTopics(); toast(t('cardDeleted'),'info');
-}
-
-function openEdit(id) {
-  const card=curTopic?.cards.find(c=>c.id===id); if(!card) return;
-  editId=id;
-  document.getElementById('inpEditQ').value=card.q || '';
-  document.getElementById('inpEditA').value=card.a || '';
-  tempImgs.inpEditQ = card.imgQ || null;
-  tempImgs.inpEditA = card.imgA || null;
-  renderImgPreview('inpEditQ');
-  renderImgPreview('inpEditA');
-  openModal('mEditCard');
-}
-
-async function saveEdit() {
-  const card=curTopic?.cards.find(c=>c.id===editId); if(!card) return;
-  const q=document.getElementById('inpEditQ').value.trim(), a=document.getElementById('inpEditA').value.trim();
-  const imgQ=tempImgs.inpEditQ, imgA=tempImgs.inpEditA;
-  if((!q && !imgQ) || (!a && !imgA)){ toast(t('errFields'),'error'); return; }
-  card.q=q; card.a=a; card.imgQ=imgQ; card.imgA=imgA;
-  await dbPut(curTopic); closeModal('mEditCard'); renderCards(); toast(t('cardEdited'),'success');
-}
-
-// ─── PRACTICE ───
-function initPractice() {
-  if(!curTopic||!curTopic.cards.length){ pQ=[];pL=[];pD=[];pCur=null;pFlip=false; return; }
-  pQ=shuffle(curTopic.cards.map((_,i)=>i)); pL=[];pD=[];pCur=null;pFlip=false;
-  nextCard();
-}
-
-function nextCard() {
-  if(pQ.length){ pCur=pQ.shift(); }
-  else if(pL.length){ pQ=shuffle(pL);pL=[];pCur=pQ.shift(); }
-  else { pCur=null; }
-  pFlip=false;
-}
-
-function flipCard() {
-  if(pCur===null) return;
-  pFlip=!pFlip;
-  const el=document.getElementById('fcInn'); if(el) el.classList.toggle('flip',pFlip);
-}
-
-function markDone()  { if(pCur===null)return; pD.push(pCur); nextCard(); renderPractice(); }
-function markLater() {
-  if(pCur===null)return;
-  pL.push(pCur); nextCard();
-  if(pCur===null&&pQ.length===0&&pL.length){ pQ=shuffle(pL);pL=[];pCur=pQ.shift();pFlip=false; }
-  renderPractice();
-}
-function restartPractice() { initPractice(); renderPractice(); }
-
-function renderPractice() {
-  const wrap=document.getElementById('pracWrap');
-  if(!curTopic||!curTopic.cards.length){
-    wrap.innerHTML=`<div class="pempty">${t('nothingHere')}<br><small style="font-size:12px;margin-top:8px;display:block;color:#4a6b8a">${t('nothingHereDesc')}</small></div>`;
-    return;
-  }
-  const total=curTopic.cards.length, doneN=pD.length, laterN=pL.length, leftN=pQ.length+(pCur!==null?1:0);
-  if(pCur===null&&pQ.length===0&&pL.length===0){
-    wrap.innerHTML=`<div class="pfinish">
-      <div class="ficon">🎉</div>
-      <div class="ftitle">${t('finTitle')}</div>
-      <div class="fsub">${t('finSub')}</div>
-      ${buildProg(total,doneN,laterN)}
-      <button class="pbtn pbtn-restart" onclick="restartPractice()">${t('btnRestart')}</button>
-    </div>`;
-    return;
-  }
-  const card=curTopic.cards[pCur];
-  wrap.innerHTML=`
-    <div class="pstats">
-      <div class="chip cdone">✓ ${doneN} ${t('sDone')}</div>
-      <div class="chip cleft">📚 ${leftN} ${t('sLeft')}</div>
-      ${laterN>0?`<div class="chip clater">⏱ ${laterN} ${t('sLater')}</div>`:''}
-    </div>
-    <div class="fcard" onclick="flipCard()">
-      <div class="fcinn${pFlip?' flip':''}" id="fcInn">
-        <div class="fcface fcfront">
-          <div class="fcpill fcpq">${t('lblQ')}</div>
-          <div class="fctxt">${fmt(card.q, card.imgQ)}</div>
-          <div class="fchint">↩ ${t('practiceFlip')}</div>
-        </div>
-        <div class="fcface fcback">
-          <div class="fcpill fcpa">${t('lblA')}</div>
-          <div class="fctxt">${fmt(card.a, card.imgA)}</div>
-        </div>
-      </div>
-    </div>
-    <div class="progarea">${buildProg(total,doneN,laterN)}</div>
-    <div class="pctrls">
-      <button class="pbtn pbtn-skip" onclick="markLater()">${t('btnSkip')}</button>
-      <button class="pbtn pbtn-know" onclick="markDone()">${t('btnKnow')}</button>
-    </div>
-    <div class="keyhint">${t('keyHint')}</div>`;
-}
-
-function buildProg(total,doneN,laterN) {
-  const dp=total?Math.round(doneN/total*100):0, lp=total?Math.round(laterN/total*100):0;
-  let dots='';
-  const max=Math.min(total,48);
-  for(let i=0;i<max;i++){
-    let cls='d-pend';
-    if(pD.includes(i)) cls='d-done';
-    else if(pL.includes(i)) cls='d-later';
-    else if(i===pCur) cls='d-cur';
-    dots+=`<div class="dot ${cls}"></div>`;
-  }
-  return `<div class="proglabels"><span>${t('progLabel')}</span><span class="pct">${dp}% ${t('pctLabel')}</span></div>
-    <div class="progtrack"><div class="progdone" style="width:${dp}%"></div><div class="proglater" style="left:${dp}%;width:${lp}%"></div></div>
-    ${total<=48?`<div class="progdots">${dots}</div>`:''}`;
-}
-
-// ─── NEW TOPIC ───
-function openNewTopic() {
-  selColor=COLORS[Math.floor(Math.random()*COLORS.length)];
-  buildColors();
-  document.getElementById('inpTopicName').value='';
-  openModal('mNewTopic');
-  setTimeout(()=>document.getElementById('inpTopicName').focus(),150);
-}
-async function createTopic() {
-  const name=document.getElementById('inpTopicName').value.trim();
-  if(!name){ toast(t('errName'),'error'); return; }
-  const tp={id:uid(),name,color:selColor,cards:[]};
-  topics.push(tp); await dbPut(tp);
-  closeModal('mNewTopic'); renderTopics();
-  selectTopic(tp.id,'cards');
-  setTimeout(()=>{
-    const b=document.getElementById('addBody'),tg=document.getElementById('addToggle');
-    if(!b.classList.contains('open')){ b.classList.add('open'); tg.classList.add('open'); }
-    document.getElementById('inpQ').focus();
-  },80);
-  toast(t('topicCreated'),'success');
-}
-
-// ─── RENAME ───
-function openRename() { if(curTopic) openRenameFor(curTopic.id); }
-function openRenameFor(id) {
-  renameId=id;
-  const tp=topics.find(tp=>tp.id===id);
-  document.getElementById('inpRename').value=tp?tp.name:'';
-  openModal('mRename');
-  setTimeout(()=>document.getElementById('inpRename').focus(),150);
-}
-async function doRename() {
-  const tp=topics.find(tp=>tp.id===renameId), name=document.getElementById('inpRename').value.trim();
-  if(!tp||!name) return;
-  tp.name=name; await dbPut(tp); closeModal('mRename');
-  if(curTopic?.id===tp.id) document.getElementById('thdrName').textContent=name;
-  renderTopics(); toast(t('topicRenamed'),'success');
-}
-
-// ─── DELETE ───
-function askDelete(id) { delId=id; openModal('mDelete'); }
-async function deleteTopic() {
-  if(!delId) return;
-  topics=topics.filter(tp=>tp.id!==delId); await dbDel(delId);
-  if(curTopic?.id===delId) curTopic=null;
-  closeModal('mDelete'); selectTopic(curTopic?.id||null); renderTopics();
-  toast(t('topicDeleted'),'info'); delId=null;
-}
-
-// ─── EXPORT ───
-function doExport(data,name) {
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));
-  a.download=name; a.click(); toast(t('exportedOk'),'success');
-}
-function exportAll()     { doExport(topics,'flashcards_all.json'); }
-function exportCurrent() { if(!curTopic){toast(t('noTopic'),'error');return;} exportOne(curTopic.id); }
-function exportOne(id)   { const tp=topics.find(tp=>tp.id===id); if(tp) doExport([tp],`flashcards_${tp.name.replace(/\s+/g,'_')}.json`); }
-
-// ─── IMPORT ───
-function openImport() {
-  importFile=null;
-  document.getElementById('fileNameDisplay').textContent='';
-  document.getElementById('inpUrl').value='';
-  document.getElementById('inpPaste').value='';
-  switchItab('file'); openModal('mImport');
-}
-function switchItab(tab) {
-  importItab=tab;
-  document.querySelectorAll('.itab').forEach(b=>b.classList.toggle('active',b.dataset.itab===tab));
-  document.getElementById('ipFile').style.display  = tab==='file' ?'block':'none';
-  document.getElementById('ipUrl').style.display   = tab==='url'  ?'block':'none';
-  document.getElementById('ipPaste').style.display = tab==='paste'?'block':'none';
-}
-function onFileChange(e) {
-  importFile=e.target.files[0];
-  document.getElementById('fileNameDisplay').textContent=importFile?importFile.name:'';
-}
-async function doImport() {
-  let data;
-  try {
-    if(importItab==='file'){ if(!importFile){toast(t('selectFile'),'error');return;} data=JSON.parse(await importFile.text()); }
-    else if(importItab==='url'){ const u=document.getElementById('inpUrl').value.trim(); if(!u){toast(t('selectFile'),'error');return;} const r=await fetch(u); data=await r.json(); }
-    else { data=JSON.parse(document.getElementById('inpPaste').value); }
-    await mergeTopics(data); closeModal('mImport');
-  } catch(e){ console.error(e); toast(t('importError'),'error'); }
-}
-async function mergeTopics(data) {
-  if(!Array.isArray(data)) data=[data];
-  let n=0;
-  for(const raw of data){
-    if(!raw.name) continue;
-    const ex=topics.find(tp=>tp.name===raw.name);
-    if(ex){
-      const qs=new Set(ex.cards.map(c=>c.q));
-      (raw.cards||[]).forEach(c=>{
-        if(!qs.has(c.q)) ex.cards.push({id:uid(), q:c.q||'', a:c.a||'', imgQ:c.imgQ||null, imgA:c.imgA||null});
-      });
-      await dbPut(ex);
-    } else {
-      const tp={
-        id:uid(),
-        name:raw.name,
-        color:raw.color||COLORS[Math.floor(Math.random()*COLORS.length)],
-        cards:(raw.cards||[]).map(c=>({id:uid(), q:c.q||'', a:c.a||'', imgQ:c.imgQ||null, imgA:c.imgA||null}))
-      };
-      topics.push(tp);
-      await dbPut(tp);
-    }
-    n++;
-  }
-  renderTopics(); toast(`${t('importedOk')} (${n})`,'success');
-}
-async function checkUrlImport() {
-  const url=new URLSearchParams(location.search).get('import_from_url'); if(!url) return;
-  try { toast('🔄 Importing…','info',5000); const r=await fetch(url); await mergeTopics(await r.json()); history.replaceState({},'',location.pathname); }
-  catch(e){ toast(t('fetchErr'),'error'); }
-}
-
-function zoomImg(src) {
-  document.getElementById('zoomImg').src = src;
-  openModal('mZoom');
-}
-
-// ─── IMAGE UPLOAD ───
-let currentImgTarget = null;
-let tempImgs = { inpQ: null, inpA: null, inpEditQ: null, inpEditA: null };
-
-function pickImg(id) {
-  currentImgTarget = id;
-  document.getElementById('imgUpload').click();
-}
-
-function onImgSelected(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (re) => {
-    tempImgs[currentImgTarget] = re.target.result;
-    renderImgPreview(currentImgTarget);
-    e.target.value = '';
-  };
-  reader.readAsDataURL(file);
-}
-
-function renderImgPreview(id) {
-  const containerId = id === 'inpQ' ? 'preQ' : id === 'inpA' ? 'preA' : id === 'inpEditQ' ? 'preEditQ' : 'preEditA';
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  container.innerHTML = '';
-  if (tempImgs[id]) {
-    const div = document.createElement('div');
-    const img = document.createElement('img');
-    img.src = tempImgs[id];
-    const btn = document.createElement('button');
-    btn.className = 'del';
-    btn.innerText = 'X';
-    btn.onclick = () => {
-      tempImgs[id] = null;
-      renderImgPreview(id);
-    };
-    div.appendChild(img);
-    div.appendChild(btn);
-    container.appendChild(div);
-  }
-}
-
-// ─── KEYBOARD ───
-document.addEventListener('keydown', e => {
-  const modal=document.querySelector('.overlay.open');
-  if(e.key==='Escape'&&modal){ modal.classList.remove('open'); return; }
-  if(modal) return;
-  if(curTab==='practice'){
-    if(e.key===' ')          { e.preventDefault(); flipCard(); }
-    if(e.key==='ArrowRight') { e.preventDefault(); if(pFlip) markDone(); }
-    if(e.key==='ArrowDown')  { e.preventDefault(); markLater(); }
-  }
-});
-
-// ─── LIBRARY ───
-const LIB = [
-  { name: 'ihkLibrary', file: 'imports/ihk_ap2_fa_2026.json' }
-];
-
-function renderLibrary() {
-  const list = document.getElementById('libList');
-  if(!list) return;
-  list.innerHTML = '';
-  LIB.forEach(item => {
-    const el = document.createElement('div');
-    el.className = 'titem';
-    el.innerHTML = `<div class="tdot" style="background:#5288c1"></div>
-      <div class="tname">${esc(t(item.name))}</div>
-      <div class="tacts"><button class="cta">📥</button></div>`;
-    el.addEventListener('click', () => importPredefined(item.file));
-    list.appendChild(el);
-  });
-}
-
-async function importPredefined(file) {
-  try {
-    const r = await fetch(file);
-    if(!r.ok) throw new Error();
-    const data = await r.json();
-    await mergeTopics(data);
-  } catch(e) {
-    console.error(e);
-    toast(t('importError'), 'error');
-  }
-}
-
-// ─── INIT ───
-async function init() {
-  await initDB();
-  topics = await dbAll();
-  applyLang();
-  buildColors();
-  await checkUrlImport();
-  if(topics.length) selectTopic(topics[0].id,'practice');
-}
-init();
-</script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
