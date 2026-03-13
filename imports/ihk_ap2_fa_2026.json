@@ -1,87 +1,149 @@
 [
   {
+    "name": "Planen eines Softwareproduktes",
+    "color": "#5288c1",
+    "cards": [
+      {
+        "q": "Was ist das Ziel einer **Lastenhefterstellung**?",
+        "a": "### Zielsetzung\nDefinition der Gesamtheit der Forderungen des Auftraggebers an die Lieferungen und Leistungen eines Auftragnehmers.",
+        "id": "19cddde428440dca5b0",
+        "area": "Planen",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      },
+      {
+        "q": "Nenne drei Phasen des **Wasserfallmodells**.",
+        "a": "- Anforderungsdefinition\n- System- und Softwareentwurf\n- Implementierung und Modultest",
+        "id": "19cddde428464ba44d7",
+        "area": "Planen",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Lastenheft und Pflichtenheft?",
+        "a": "**Lastenheft**: Was will der Auftraggeber? (Erstellt vom Kunden)\n**Pflichtenheft**: Wie setzt der Auftragnehmer es um? (Erstellt vom Entwickler)",
+        "id": "19cddde42842154573b",
+        "area": "Planen",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      }
+    ],
+    "id": "19cddde428492f6785c"
+  },
+  {
+    "name": "Wirtschafts- und Sozialkunde (WISO)",
+    "color": "#e57373",
+    "cards": [
+      {
+        "q": "Was ist der Unterschied zwischen **Individualversicherung** und **Sozialversicherung**?",
+        "a": "Die Sozialversicherung ist eine gesetzliche Pflichtversicherung, während die Individualversicherung auf freiwilligen Verträgen basiert.",
+        "id": "19cddde4284ebc478de",
+        "area": "WISO",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      },
+      {
+        "q": "Nenne die 5 Säulen der **Sozialversicherung**.",
+        "a": "- Krankenversicherung\n- Rentenversicherung\n- Arbeitslosenversicherung\n- Pflegeversicherung\n- Unfallversicherung",
+        "id": "19cddde4284468ec012",
+        "area": "WISO",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      },
+      {
+        "q": "Welche Sozialversicherung ist die einzige, die allein vom Arbeitgeber getragen wird?",
+        "a": "Die **Unfallversicherung** (Berufsgenossenschaft).",
+        "id": "19cddde4284ce4f8795",
+        "area": "WISO",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      }
+    ],
+    "id": "19cddde42847b3ff14"
+  },
+  {
     "id": "mm3hhb6ionh44t8s1ls",
     "name": "Entwicklung und Umsetzung von Algorithmen",
     "color": "#81c784",
     "cards": [
       {
         "id": "mm3hhb6i4tyx7p3bu2",
-        "q": "Datenbankmanagementsystem (DBMS)",
-        "a": "Die Software, die die Datenbank verwaltet (z. B. MySQL, PostgreSQL, Oracle, MS SQL Server). Sie bildet die Schnittstelle zwischen den Benutzern/Anwendungen und den physischen Daten......  Rechteverwaltung, Reparatur von defekten Tabellen, Ermöglichen der gleichzeitigen Nutzung durch mehrere Nutzer",
+        "q": "DBMS (Datenbankmanagementsystem) Übersicht",
+        "a": "Software zur Verwaltung von Datenbanken. Sie bildet die Schnittstelle zwischen Nutzern und den physischen Daten. Stichwort: Trennung von Daten und Anwendung.",
         "imgQ": null,
         "imgA": null,
         "area": "DB",
-        "updatedAt": 1772468173606
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm9dqpdpaqa2aoavo3l",
         "q": "Datenbanksystem (DBS)",
-        "a": "...,",
+        "a": "Ein **Datenbanksystem (DBS)** besteht aus zwei Hauptkomponenten:\n1. **Datenbank (DB)**: Die strukturierte Sammlung der eigentlichen Daten.\n2. **Datenbankmanagementsystem (DBMS)**: Die Software zur Verwaltung der Daten.\n\nFormel: **DBS = DB + DBMS**",
         "area": "DB",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772468098044,
-        "updatedAt": 1772468146209
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm9drc0tfc1gp0k56t",
         "q": "DDL und DML",
-        "a": "...",
+        "a": "SQL wird in verschiedene Untergruppen unterteilt:\n- **DDL (Data Definition Language)**: Definiert die Struktur (CREATE, ALTER, DROP).\n- **DML (Data Manipulation Language)**: Bearbeitet die Daten (SELECT, INSERT, UPDATE, DELETE).\n- **DCL (Data Control Language)**: Berechtigungen (GRANT, REVOKE).\n- **TCL (Transaction Control Language)**: Transaktionen (COMMIT, ROLLBACK).",
         "area": "SQL",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772468127389,
-        "updatedAt": 1772468127389
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm569xkqvv5op1j1rrc",
         "q": "Kardinalitaet",
-        "a": "...",
+        "a": "Die Kardinalität gibt an, wie viele Entitäten eines Typs mit wie vielen Entitäten eines anderen Typs in Beziehung stehen können (z.B. 1:1, 1:n, n:m).",
         "area": "ERM",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213693498,
-        "updatedAt": 1772213693498
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm569kz2a2gq0r0rck4",
         "q": "Ermitteln der Entity-Typen",
-        "a": "...",
+        "a": "Entity-Typen sind meist **Substantive** aus der Problembeschreibung (z.B. Kunde, Produkt, Bestellung). Sie repräsentieren Objekte oder Konzepte, über die Daten gespeichert werden sollen.",
         "area": "ERM",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213677166,
-        "updatedAt": 1772213677166
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm56935d03iyop8ei8io",
         "q": "Bestimmen der Attribute",
-        "a": "...",
+        "a": "Attribute beschreiben die Eigenschaften eines Entity-Typen (z.B. Name, Preis, Geburtsdatum). Jedes Attribut hat einen Datentyp und oft eine Längenbeschränkung.",
         "area": "ERM",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213654065,
-        "updatedAt": 1772213654065
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm568n6dq1p0nl8xnp",
-        "q": "EInzeichnen der Beziehungen",
-        "a": "EInzeichnen der Beziehungen ERM - hat, bezieht, enthält, besitzt, gwhoert zu, ist usw…??",
+        "q": "Einzeichnen der Beziehungen",
+        "a": "Beziehungen werden im ERM als **Rauten** dargestellt. Sie verbinden zwei oder mehr Entity-Typen. Die Beschriftung erfolgt meist durch ein Verb (z. B. 'kauft', 'gehört zu', 'leitet').",
         "area": "ERM",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213633365,
-        "updatedAt": 1772213633365
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm5687z4nfrql3seeu8",
         "q": "Entity, Relationship, Kardinalitaet",
-        "a": "...",
+        "a": "- **Entity**: Objekt der realen Welt (Rechteck).\n- **Relationship**: Beziehung zwischen Entitäten (Raute).\n- **Kardinalität**: Anzahl der beteiligten Entitäten (1, n, m).",
         "area": "ERM",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213613664,
-        "updatedAt": 1772213613664
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm567ww40946y3kg81uk",
@@ -96,31 +158,31 @@
       {
         "id": "mm567759g9yeiymoa1",
         "q": "Datenerhebung",
-        "a": "...",
+        "a": "Der erste Schritt beim DB-Entwurf. Informationen werden durch Interviews, Dokumentenanalyse oder Beobachtung gesammelt, um festzulegen, welche Daten das System speichern muss.",
         "area": "ERM",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213565933,
-        "updatedAt": 1772213565933
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm565f6027bh0u93uzw",
         "q": "Datenbankmodel",
-        "a": "...",
+        "a": "Ein theoretisches Modell, das festlegt, wie Daten gespeichert, organisiert und manipuliert werden können. Das am weitesten verbreitete Modell ist das **relationale Modell**.",
         "area": "Diagramme",
         "imgQ": null,
         "imgA": null,
         "createdAt": 1772213483016,
-        "updatedAt": 1772213483016
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm53qrjeuse8th65j5",
-        "q": "Datentypen in der Programmiersprache und wie viel ist die Größe.",
-        "a": "Boolean, Byte, Char, Integer = 4 Byte / 32 Bit, Longinteger usw....",
+        "q": "Datentypen in der Programmierung (Übersicht)",
+        "a": "Datentypen legen fest, welche Art von Daten (Zahlen, Text, etc.) gespeichert werden können und wie viel Speicherplatz sie belegen.",
         "imgQ": null,
         "imgA": null,
         "area": "Programmiersprache",
-        "updatedAt": 1772212788765
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm3hhb6ik75kbj70crl",
@@ -140,10 +202,11 @@
       },
       {
         "id": "mm3hhb6ic5ks05lrzbk",
-        "q": "Relationaler.... DB (RDB)",
-        "a": "Ein Datenbankmodell, bei dem Daten in Tabellen (**Relationen**) organisiert sind. Diese Tabellen sind über gemeinsame Schlüsselwerte (Primär- und Fremdschlüssel) miteinander verknüpft und die Daten sind in Spalten gespeichert.",
+        "q": "Relationales Datenbankmodell (RDB)",
+        "a": "Ein Datenbankmodell, bei dem Daten in Tabellen (**Relationen**) organisiert sind. Diese Tabellen sind über gemeinsame Schlüsselwerte (Primär- und Fremdschlüssel) miteinander verknüpft.",
         "imgQ": null,
-        "imgA": null
+        "imgA": null,
+        "updatedAt": 1773248913471
       },
       {
         "id": "mm3hhb6i10isx8vdd2im",
@@ -277,6 +340,286 @@
         "a": "- **Blackbox**: Test gegen die Spezifikation. Interner Code unbekannt. Fokus auf Input/Output.\n- **Whitebox**: Test der internen Programmlogik. Kenntnis des Quellcodes erforderlich. Ziel: Abdeckung aller Pfade/Zweige.",
         "imgQ": null,
         "imgA": null
+      },
+      {
+        "id": "19cddde42844f399b20",
+        "area": "SQL",
+        "q": "SQL ORDER BY",
+        "a": "Sortiert das Abfrageergebnis nach einer oder mehreren Spalten.\n\n- **ASC**: Aufsteigend (Standard).\n- **DESC**: Absteigend.\n\n**Beispiel:**\n```sql\nSELECT Name, Preis\nFROM Produkte\nORDER BY Preis DESC;\n```",
+        "createdAt": 1773248856708,
+        "updatedAt": 1773248856708
+      },
+      {
+        "id": "19cdddf203fd7fb610f",
+        "area": "DB",
+        "q": "DBMS Kernaufgaben",
+        "a": "- Datenhaltung & Speicherung\n- Integritätssicherung\n- Mehrbenutzerbetrieb (Concurrency control)\n- Transaktionsmanagement\n- Rechteverwaltung\n- Datensicherung & Wiederherstellung",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203ff508b25e",
+        "area": "Programmiersprache",
+        "q": "Ganzzahlige Datentypen (Beispiele)",
+        "a": "- **Byte**: 1 Byte (8 Bit)\n- **Short**: 2 Byte\n- **Integer**: 4 Byte (32 Bit)\n- **Long**: 8 Byte (64 Bit)",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fda32c4c4",
+        "area": "Programmiersprache",
+        "q": "Andere Datentypen (Beispiele)",
+        "a": "- **Boolean**: 1 Bit (wahr/falsch)\n- **Char**: 2 Byte (Unicode-Zeichen)\n- **Float**: 4 Byte (Fließkomma)\n- **Double**: 8 Byte (Präzise Fließkomma)",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f37da9ef7",
+        "area": "SQL",
+        "q": "SQL Datentypen (Übersicht)",
+        "a": "Beim Anlegen von Tabellen muss für jede Spalte ein Datentyp definiert werden. Die wichtigsten Gruppen sind:\n- **Numerisch** (INT, DECIMAL)\n- **Zeichenfolgen** (VARCHAR, CHAR)\n- **Datum/Zeit** (DATE, TIMESTAMP)\n- **Binär** (BLOB)",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fdd81b318",
+        "area": "SQL",
+        "q": "SQL Numerische Datentypen",
+        "a": "- **INT / INTEGER**: Ganzzahlen.\n- **DECIMAL(p,s) / NUMERIC**: Festkommazahlen mit Genauigkeit `p` und Nachkommastellen `s` (ideal für Geldwerte).\n- **FLOAT / REAL**: Fließkommazahlen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f51b4c34b",
+        "area": "SQL",
+        "q": "SQL Zeichenfolgen-Datentypen",
+        "a": "- **CHAR(n)**: Feste Länge `n`. Füllt mit Leerzeichen auf.\n- **VARCHAR(n)**: Variable Länge bis max `n`. Platzsparend.\n- **TEXT / LONGTEXT**: Für sehr große Textmengen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fb709a318",
+        "area": "SQL",
+        "q": "SQL Sprachgruppen: DDL, DML, DCL, TCL",
+        "a": "SQL wird nach Funktionalität unterteilt:\n- **DDL**: Definition der Struktur.\n- **DML**: Manipulation von Daten.\n- **DCL**: Kontrolle von Zugriffsrechten.\n- **TCL**: Steuerung von Transaktionen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f572e8aef",
+        "area": "SQL",
+        "q": "SQL DDL (Data Definition Language)",
+        "a": "Befehle zum Definieren/Ändern des Datenbankschemas:\n- `CREATE`: Erstellt Objekte (Tabellen, Indizes).\n- `ALTER`: Ändert bestehende Strukturen.\n- `DROP`: Löscht Objekte endgültig.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f241f853",
+        "area": "SQL",
+        "q": "SQL DML (Data Manipulation Language)",
+        "a": "Befehle zum Arbeiten mit den Datensätzen:\n- `SELECT`: Daten abfragen.\n- `INSERT`: Neue Daten einfügen.\n- `UPDATE`: Bestehende Daten ändern.\n- `DELETE`: Daten löschen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f1a4299e1",
+        "area": "SQL",
+        "q": "SQL DCL (Data Control Language)",
+        "a": "Befehle zur Rechteverwaltung:\n- `GRANT`: Gewährt Benutzern Berechtigungen.\n- `REVOKE`: Entzieht Berechtigungen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f47e15b1b",
+        "area": "SQL",
+        "q": "SQL TCL (Transaction Control Language)",
+        "a": "Befehle zur Transaktionssteuerung:\n- `COMMIT`: Speichert Änderungen dauerhaft.\n- `ROLLBACK`: Macht Änderungen rückgängig.\n- `SAVEPOINT`: Setzt einen Punkt für Teil-Rollbacks.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fe2c864a0",
+        "area": "SQL",
+        "q": "SQL INSERT INTO",
+        "a": "Fügt neue Datensätze in eine Tabelle ein.\n\n**Syntax:**\n```sql\nINSERT INTO Tabellenname (Spalte1, Spalte2)\nVALUES (Wert1, Wert2);\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f41e780a",
+        "area": "SQL",
+        "q": "SQL SELECT",
+        "a": "Fragt Daten aus der Datenbank ab.\n\n**Syntax:**\n```sql\nSELECT Spalte1, Spalte2\nFROM Tabellenname\nWHERE Bedingung\nORDER BY Spalte ASC/DESC;\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fcd41e253",
+        "area": "SQL",
+        "q": "SQL CREATE TABLE",
+        "a": "Erstellt eine neue Tabelle.\n\n**Syntax:**\n```sql\nCREATE TABLE Kunden (\n  ID INT PRIMARY KEY,\n  Name VARCHAR(100) NOT NULL,\n  Email VARCHAR(100) UNIQUE\n);\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f20a672fc",
+        "area": "SQL",
+        "q": "SQL ALTER TABLE",
+        "a": "Ändert eine bestehende Tabellenstruktur.\n\n**Beispiele:**\n- `ADD`: Spalte hinzufügen.\n- `MODIFY / ALTER COLUMN`: Datentyp ändern.\n- `DROP COLUMN`: Spalte löschen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f72348ecd",
+        "area": "SQL",
+        "q": "SQL UPDATE",
+        "a": "Ändert bestehende Daten in einer Tabelle.\n\n**Wichtig:** Immer mit `WHERE` verwenden, sonst werden alle Zeilen geändert!\n\n**Syntax:**\n```sql\nUPDATE Tabelle\nSET Spalte1 = Wert1\nWHERE ID = 5;\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f885a0fd1",
+        "area": "SQL",
+        "q": "SQL DELETE",
+        "a": "Löscht Datensätze aus einer Tabelle.\n\n**Wichtig:** Ohne `WHERE` wird die ganze Tabelle geleert!\n\n**Syntax:**\n```sql\nDELETE FROM Tabelle\nWHERE ID = 10;\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f545a3858",
+        "area": "SQL",
+        "q": "SQL DROP vs. TRUNCATE",
+        "a": "- **DROP TABLE**: Löscht die gesamte Tabelle inklusive Struktur.\n- **TRUNCATE TABLE**: Löscht alle Daten in der Tabelle, behält aber die Struktur bei (schneller als DELETE).",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f978100e3",
+        "area": "SQL",
+        "q": "SQL Funktionen (Aggregatfunktionen)",
+        "a": "Führen Berechnungen über mehrere Zeilen aus:\n- `COUNT()`: Anzahl der Zeilen.\n- `SUM()`: Summe der Werte.\n- `AVG()`: Durchschnittswert.\n- `MAX() / MIN()`: Größter/Kleinster Wert.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f888e2900",
+        "area": "SQL",
+        "q": "Was ist eine Transaktion?",
+        "a": "Eine Folge von SQL-Befehlen, die als eine **logische Einheit** betrachtet werden. Sie müssen entweder alle erfolgreich ausgeführt werden (COMMIT) oder gar nicht (ROLLBACK). Stichwort: **ACID**.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fbd18fe01",
+        "area": "SQL",
+        "q": "SQL BEGIN TRANSACTION, COMMIT, ROLLBACK",
+        "a": "- `BEGIN TRANSACTION`: Startet die Einheit.\n- `COMMIT`: Bestätigt alle Änderungen dauerhaft.\n- `ROLLBACK`: Verwirft alle Änderungen seit dem Start der Transaktion.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f19f480dd",
+        "area": "SQL",
+        "q": "SQL GRANT und REVOKE",
+        "a": "- **GRANT**: Erlaubt einem User bestimmte Aktionen (z.B. `GRANT SELECT ON Kunden TO 'user1'`).\n- **REVOKE**: Entzieht diese Rechte wieder.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fc7026b6f",
+        "area": "SQL",
+        "q": "SQL Keys & Constraints (Übersicht)",
+        "a": "Regeln zur Sicherstellung der Datenintegrität:\n- **PRIMARY KEY**: Eindeutige ID.\n- **FOREIGN KEY**: Verweis auf andere Tabelle.\n- **NOT NULL**: Feld darf nicht leer sein.\n- **UNIQUE**: Wert darf nur einmal vorkommen.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f54a71844",
+        "area": "SQL",
+        "q": "SQL PRIMARY KEY & AUTO_INCREMENT",
+        "a": "Ein **Primary Key** identifiziert eine Zeile eindeutig.\n`AUTO_INCREMENT` (MySQL) oder `IDENTITY` (SQL Server) sorgt dafür, dass die ID automatisch hochgezählt wird.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fe576484f",
+        "area": "SQL",
+        "q": "SQL FOREIGN KEY",
+        "a": "Ein Fremdschlüssel verweist auf den Primärschlüssel einer anderen Tabelle und stellt eine Beziehung her. Er sichert die **Referentielle Integrität**.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f96411fe4",
+        "area": "SQL",
+        "q": "SQL JOINS (Übersicht)",
+        "a": "Dienen zum Kombinieren von Zeilen aus zwei oder mehr Tabellen basierend auf einer verwandten Spalte.\n- INNER JOIN\n- LEFT JOIN\n- RIGHT JOIN\n- FULL JOIN",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fb125f077",
+        "area": "SQL",
+        "q": "SQL INNER JOIN",
+        "a": "Gibt nur die Datensätze zurück, die in **beiden** Tabellen eine Entsprechung haben.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f8162abfb",
+        "area": "SQL",
+        "q": "SQL LEFT (OUTER) JOIN",
+        "a": "Gibt **alle** Datensätze der linken Tabelle zurück und die passenden der rechten. Wenn rechts nichts passt, wird `NULL` angezeigt.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f16a1847b",
+        "area": "SQL",
+        "q": "SQL RIGHT (OUTER) JOIN",
+        "a": "Gibt **alle** Datensätze der rechten Tabelle zurück und die passenden der linken.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fa28e55d3",
+        "area": "SQL",
+        "q": "Was ist ein RDBMS?",
+        "a": "**Relational Database Management System**.\nEin DBMS, das auf dem relationalen Modell basiert (z.B. MySQL, PostgreSQL, MS SQL Server, Oracle). Daten werden in Tabellen mit festem Schema gespeichert.",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203f5c92d147",
+        "area": "SQL",
+        "q": "SQL DISTINCT",
+        "a": "Entfernt Duplikate aus dem Abfrageergebnis.\n\n**Syntax:**\n```sql\nSELECT DISTINCT Spaltenname\nFROM Tabellenname;\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fab9bbf92",
+        "area": "SQL",
+        "q": "SQL GROUP BY",
+        "a": "Gruppiert Zeilen, die in bestimmten Spalten dieselben Werte haben, oft verwendet mit Aggregatfunktionen (COUNT, SUM, etc.).\n\n**Beispiel:**\n```sql\nSELECT Abteilung, COUNT(*)\nFROM Mitarbeiter\nGROUP BY Abteilung;\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf203fed306b76",
+        "area": "SQL",
+        "q": "SQL WHERE vs. HAVING",
+        "a": "- **WHERE**: Filtert Zeilen **vor** der Gruppierung.\n- **HAVING**: Filtert Gruppen **nach** der Gruppierung (wird oft mit Aggregatfunktionen verwendet).\n\n**Beispiel:**\n```sql\nSELECT Abteilung, COUNT(*)\nFROM Mitarbeiter\nGROUP BY Abteilung\nHAVING COUNT(*) > 5;\n```",
+        "createdAt": 1773248913471,
+        "updatedAt": 1773248913471
+      },
+      {
+        "id": "19cdddf93f8d7129604",
+        "area": "SQL",
+        "q": "SQL Datumsfunktionen",
+        "a": "Dienen zur Arbeit mit Datums- und Zeitwerten.\n\n- **CURRENT_DATE**: Liefert das aktuelle Datum.\n- **CURRENT_TIME**: Liefert die aktuelle Uhrzeit.\n- **NOW()** / **CURRENT_TIMESTAMP**: Liefert Datum und Uhrzeit.\n- **DATE()**: Extrahiert das Datum aus einem Zeitstempel.",
+        "createdAt": 1773248943096,
+        "updatedAt": 1773248943096
       }
     ]
   }
